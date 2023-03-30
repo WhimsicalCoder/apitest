@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>REST API Example</title>
+</head>
+<body>
+	<h1>REST API Example</h1>
+	<p>This is an example of how to call a REST API from your Tableau Public dashboard.</p>
+	<button onclick="callAPI()">Call API</button>
+
+	<script>
+		function callAPI() {
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=SMBZD791J8X3O2RT, true);
+			xhr.onload = function() {
+				if (xhr.status === 200) {
+					alert(xhr.responseText);
+				}
+			};
+			xhr.send();
+		}
+	</script>
+</body>
+</html>
